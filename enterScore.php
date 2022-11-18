@@ -2,10 +2,11 @@
 <html lang="en">
 
 <?php
-require("header.php");
+require("modules/header.php");
 ?>
 <body>
 <?php
+include("modules/nav.php");
 if($_SERVER['REQUEST_METHOD']  =='POST')
 {
     try {
@@ -52,7 +53,7 @@ if($_SERVER['REQUEST_METHOD']  =='POST')
 </body>
 
 <?php
-require("footer.php");
+require("modules/footer.php");
 ?>
 
 </html>
