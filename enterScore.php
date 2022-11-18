@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
 <?php
-require("modules/header.php");
+require("modules/conn.php");
+include("modules/header.html");
 ?>
+</head>
 <body>
 <?php
 include("modules/nav.php");
