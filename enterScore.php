@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Enter Score</title>
 <?php
 require("modules/conn.php");
 include("modules/header.html");
@@ -20,18 +21,13 @@ if($_SERVER['REQUEST_METHOD']  =='POST')
         $query = $conn->prepare("INSERT INTO score (name, score, `time`, comments) VALUES(?, ?, ?, ?);");
         $query->bind_param('ssss', $name, $score, $now, $comments);
         $query->execute();
+        header("Location: scores.php");
     }catch(Exception $e){
         echo '<h4 class="error">Error!</h4>
                 <p class="error">update was unsuccessful</p>';
         echo 'Error: ' .$e->getMessage();
-    }
-        
-        
+    }       
 }
-
-        
-
-        
 ?>
 <main class="container">
     <h2>Enter Your Score</h2>

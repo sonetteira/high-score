@@ -1,6 +1,6 @@
 //drawing board
-var canv = document.getElementById("canvas");
-var ctx = canv.getContext("2d");
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
 //slow down animation for blinky look
 var fpsInterval = 70;
 var start, now;
@@ -70,10 +70,7 @@ function collide() {
     if(snakeSegments[0].x >= canvas.width || snakeSegments[0].x < 0 ||
         snakeSegments[0].y >= canvas.height || snakeSegments[0].y < 0) {
             //uh oh
-            alert(`GAME OVER\n
-                Length: ${snakeSegments.length}`);
-            snakeSegments = [{x: random("x"), y: random("y")},];
-            document.location.reload();
+            gameOverMessage();
         }
 }
 
@@ -83,11 +80,32 @@ function eatYourTail() {
         if(snakeSegments[i].x == snakeSegments[0].x && 
             snakeSegments[i].y == snakeSegments[0].y) {
                 //uh oh
-                alert(`GAME OVER\n
-                    Length: ${snakeSegments.length}`);
-                snakeSegments = [{x: random("x"), y: random("y")},];
-                document.location.reload();
+                gameOverMessage()
             }
+    }
+}
+
+function gameOverMessage() {
+    let winner = prompt(`GAME OVER\nLength: ${snakeSegments.length}\n\nEnter your name to submit your score!`);
+    if(winner === null) {
+        //play again
+        snakeSegments = [{x: random("x"), y: random("y")},];
+        document.location.reload();
+        return;
+    }
+    else if(winner.length > 0){ //submit scores
+        $.ajax({
+            type : "POST",  //type of method
+            url  : "enterScore.php",  //your page
+            data : { name : winner, score : snakeSegments.length, comments : "" },// passing the values
+            success: function(res){  
+                window.location.replace("scores.php");
+                console.log("success")
+            }
+        });
+    } else {
+        snakeSegments = [{x: random("x"), y: random("y")},];
+        document.location.reload();
     }
 }
 

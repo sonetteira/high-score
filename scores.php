@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<title>Scores</title>
 <?php
 require("modules/conn.php");
 include("modules/header.html");
@@ -18,6 +19,7 @@ $result = $conn->query($query);
 if ($result->num_rows > 0) {
     echo '<table class="table table-striped"><thead>
         <tr>
+            <th scope="col">Rank</th>
             <th scope="col">Name</th>
             <th scope="col">Score</th>
             <th scope="col">Comments</th>
@@ -25,8 +27,9 @@ if ($result->num_rows > 0) {
         </thead>
         <tbody>
         <tr>';
-      while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["name"] . "</td><td>" . $row["score"] . 
+    $n = 1;
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $n++ . "</td><td>" . $row["name"] . "</td><td>" . $row["score"] . 
         "</td><td>" . $row["comments"] . "</td></tr>";
     }
     echo "</tbody></table>";
