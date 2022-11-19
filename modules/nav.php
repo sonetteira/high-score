@@ -9,9 +9,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="scores.php">View Scores</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="enterScore.php">Enter a Score</a>
-            </li>
         </ul>
     </div>
 </nav>

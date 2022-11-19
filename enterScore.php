@@ -27,9 +27,11 @@ if($_SERVER['REQUEST_METHOD']  =='POST')
                 <p class="error">update was unsuccessful</p>';
         echo 'Error: ' .$e->getMessage();
     }       
+} else {
+    header("Location: index.php");
 }
 ?>
-<main class="container">
+<!-- <main class="container">
     <h2>Enter Your Score</h2>
     <form action="enterScore.php" method="post">
         <div class="form-group">
@@ -47,7 +49,7 @@ if($_SERVER['REQUEST_METHOD']  =='POST')
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         <label></label>
     </form>
-</main>
+</main> -->
 </body>
 
 <?php
