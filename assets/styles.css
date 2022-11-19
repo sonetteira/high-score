@@ -1,10 +1,21 @@
+:root {
+    --apple-color: #97e397;
+    --snake-color: #ea6a6a;
+}  
+
 * {
     padding: 0;
     margin: 0;
 }
 
+body {
+    background-color: #1e2125;
+    color:#a6c0e1;
+}
+
 canvas {
-    background: rgb(26, 25, 25);
+    background: #111;
     display: block;
     margin: 0 auto;
+    margin: 20px auto;
 }

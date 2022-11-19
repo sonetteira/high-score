@@ -123,7 +123,7 @@ function drawSnake() {
     for(let i = 0; i < snakeSegments.length; i++) {
         ctx.beginPath();
         ctx.rect(snakeSegments[i].x, snakeSegments[i].y, boxWidth, boxWidth);
-        ctx.fillStyle = "#f00";
+        ctx.fillStyle = "#ea6a6a";
         ctx.fill();
         ctx.lineWidth = 1;
         ctx.strokeStyle = "black";
@@ -159,7 +159,7 @@ function drawApple() {
     //draw an apple
     ctx.beginPath();
     ctx.rect(appleX, appleY, boxWidth, boxWidth);
-    ctx.fillStyle = "#0f0";
+    ctx.fillStyle = "#97e397";
     ctx.fill();
     ctx.closePath();
 }
