@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD']  =='POST')
         $score = $_POST['score'];
         $comments = $_POST['comments'];
         $result = NULL;
-        $query = $conn->prepare("INSERT INTO score (name, score, `time`, comments) VALUES(?, ?, ?, ?);");
+        $query = $conn->prepare("INSERT INTO Score (name, score, `time`, comments) VALUES(?, ?, ?, ?);");
         $query->bind_param('ssss', $name, $score, $now, $comments);
         $query->execute();
         header("Location: scores.php");

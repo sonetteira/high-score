@@ -14,7 +14,7 @@ include("modules/nav.php");
 ?>
 <main class="container">
 <?php
-$query = "SELECT name, score, comments FROM score ORDER BY score DESC LIMIT 15;";
+$query = "SELECT name, score, comments FROM Score ORDER BY score DESC LIMIT 15;";
 $result = $conn->query($query);
 if ($result != null and $result->num_rows > 0) {
     echo '<table class="table table-striped"><thead>
