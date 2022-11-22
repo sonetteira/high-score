@@ -16,7 +16,7 @@ include("modules/nav.php");
 <?php
 $query = "SELECT name, score, comments FROM score ORDER BY score DESC LIMIT 15;";
 $result = $conn->query($query);
-if ($result->num_rows > 0) {
+if ($result != null and $result->num_rows > 0) {
     echo '<table class="table table-striped"><thead>
         <tr>
             <th scope="col">Rank</th>
