@@ -31,7 +31,7 @@ function random(coord) {
 document.addEventListener("keydown", keyDownHandler, false);
 
 function keyDownHandler(e) {
-    if (e.key == "Right" || e.key == "ArrowRight") {
+    if (e.key == "Right" || e.key == "ArrowRight" || e.key.toLowerCase() == "d") {
         //change the snake's direction to moving left
         if(dx == 0) {
             //snake can't turn around completely
@@ -39,7 +39,7 @@ function keyDownHandler(e) {
             dy = 0;
         }
     }
-    else if (e.key == "Left" || e.key == "ArrowLeft") {
+    else if (e.key == "Left" || e.key == "ArrowLeft" || e.key.toLowerCase() == "a") {
         //change the snake's direction to moving right
         if(dx == 0) {
             //snake can't turn around completely
@@ -47,7 +47,7 @@ function keyDownHandler(e) {
             dy = 0;
         }
     }
-    if (e.key == "Up" || e.key == "ArrowUp") {
+    if (e.key == "Up" || e.key == "ArrowUp" || e.key.toLowerCase() == "w") {
         //change the snake's direction to moving left
         if(dy == 0) {
             //snake can't turn around completely
@@ -55,7 +55,7 @@ function keyDownHandler(e) {
             dx = 0;
         }
     }
-    else if (e.key == "Down" || e.key == "ArrowDown") {
+    else if (e.key == "Down" || e.key == "ArrowDown" || e.key.toLowerCase() == "s") {
         //change the snake's direction to moving right
         if(dy == 0) {
             //snake can't turn around completely
