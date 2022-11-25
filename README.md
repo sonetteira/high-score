@@ -1,5 +1,5 @@
 # high-score
-# ABOUT
+# About
 
 This project is a basic snake game. It started as an experiment in using JS animation and expanded to include a simple MariaDB database and PHP for storing high scores.
 
