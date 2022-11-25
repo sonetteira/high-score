@@ -1,6 +1,11 @@
 //drawing board
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+//buttons
+const leftButton = document.getElementById("ctrleft");
+const rightButton = document.getElementById("ctrright");
+const upButton = document.getElementById("ctrup");
+const downButton = document.getElementById("ctrdown");
 //slow down animation for blinky look
 var fpsInterval = 70;
 var start, now;
@@ -29,39 +34,60 @@ function random(coord) {
 
 //event handlers
 document.addEventListener("keydown", keyDownHandler, false);
+leftButton.addEventListener("click", setDirectionLeft);
+rightButton.addEventListener("click", setDirectionRight);
+upButton.addEventListener("click", setDirectionUp);
+downButton.addEventListener("click", setDirectionDown);
 
 function keyDownHandler(e) {
-    if (e.key == "Right" || e.key == "ArrowRight") {
-        //change the snake's direction to moving left
-        if(dx == 0) {
-            //snake can't turn around completely
-            dx = snakeVel;
-            dy = 0;
-        }
+    if (e.key == "Right" || e.key == "ArrowRight" || e.key.toLowerCase() == "d") {
+        setDirectionRight();
     }
-    else if (e.key == "Left" || e.key == "ArrowLeft") {
-        //change the snake's direction to moving right
-        if(dx == 0) {
-            //snake can't turn around completely
-            dx = -snakeVel;
-            dy = 0;
-        }
+    else if (e.key == "Left" || e.key == "ArrowLeft" || e.key.toLowerCase() == "a") {
+        setDirectionLeft();
     }
-    if (e.key == "Up" || e.key == "ArrowUp") {
-        //change the snake's direction to moving left
-        if(dy == 0) {
-            //snake can't turn around completely
-            dy = -snakeVel;
-            dx = 0;
-        }
+    if (e.key == "Up" || e.key == "ArrowUp" || e.key.toLowerCase() == "w") {
+        setDirectionUp();
     }
-    else if (e.key == "Down" || e.key == "ArrowDown") {
-        //change the snake's direction to moving right
-        if(dy == 0) {
-            //snake can't turn around completely
-            dy = snakeVel;
-            dx = 0;
-        }
+    else if (e.key == "Down" || e.key == "ArrowDown" || e.key.toLowerCase() == "s") {
+        setDirectionDown();
+    }
+}
+
+function setDirectionRight() {
+    console.log("right")
+    //change the snake's direction to moving right
+    if(dx == 0) {
+        //snake can't turn around completely
+        dx = snakeVel;
+        dy = 0;
+    }
+}
+
+function setDirectionLeft() {
+    //change the snake's direction to moving left
+    if(dx == 0) {
+        //snake can't turn around completely
+        dx = -snakeVel;
+        dy = 0;
+    }
+}
+
+function setDirectionUp() {
+    //change the snake's direction to moving up
+    if(dy == 0) {
+        //snake can't turn around completely
+        dx = 0;
+        dy = -snakeVel;
+    }
+}
+
+function setDirectionDown() {
+    //change the snake's direction to moving down
+    if(dy == 0) {
+        //snake can't turn around completely
+        dy = snakeVel;
+        dx = 0;
     }
 }
 
