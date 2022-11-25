@@ -3,11 +3,6 @@
     --snake-color: #ea6a6a;
 }  
 
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
     background-color: #1e2125;
     color:#a6c0e1;
@@ -18,4 +13,20 @@ canvas {
     display: block;
     margin: 0 auto;
     margin: 20px auto;
+}
+
+#control {
+    display: none;
+    margin: auto;
+    text-align: center;
+}
+
+#control button {
+    width: 3em;
+}
+
+@media only screen and (max-width: 768px) {
+    #control {
+        display: block;
+    }
 }

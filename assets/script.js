@@ -1,6 +1,11 @@
 //drawing board
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+//buttons
+const leftButton = document.getElementById("ctrleft");
+const rightButton = document.getElementById("ctrright");
+const upButton = document.getElementById("ctrup");
+const downButton = document.getElementById("ctrdown");
 //slow down animation for blinky look
 var fpsInterval = 70;
 var start, now;
@@ -29,39 +34,60 @@ function random(coord) {
 
 //event handlers
 document.addEventListener("keydown", keyDownHandler, false);
+leftButton.addEventListener("click", setDirectionLeft);
+rightButton.addEventListener("click", setDirectionRight);
+upButton.addEventListener("click", setDirectionUp);
+downButton.addEventListener("click", setDirectionDown);
 
 function keyDownHandler(e) {
     if (e.key == "Right" || e.key == "ArrowRight" || e.key.toLowerCase() == "d") {
-        //change the snake's direction to moving left
-        if(dx == 0) {
-            //snake can't turn around completely
-            dx = snakeVel;
-            dy = 0;
-        }
+        setDirectionRight();
     }
     else if (e.key == "Left" || e.key == "ArrowLeft" || e.key.toLowerCase() == "a") {
-        //change the snake's direction to moving right
-        if(dx == 0) {
-            //snake can't turn around completely
-            dx = -snakeVel;
-            dy = 0;
-        }
+        setDirectionLeft();
     }
     if (e.key == "Up" || e.key == "ArrowUp" || e.key.toLowerCase() == "w") {
-        //change the snake's direction to moving left
-        if(dy == 0) {
-            //snake can't turn around completely
-            dy = -snakeVel;
-            dx = 0;
-        }
+        setDirectionUp();
     }
     else if (e.key == "Down" || e.key == "ArrowDown" || e.key.toLowerCase() == "s") {
-        //change the snake's direction to moving right
-        if(dy == 0) {
-            //snake can't turn around completely
-            dy = snakeVel;
-            dx = 0;
-        }
+        setDirectionDown();
+    }
+}
+
+function setDirectionRight() {
+    console.log("right")
+    //change the snake's direction to moving right
+    if(dx == 0) {
+        //snake can't turn around completely
+        dx = snakeVel;
+        dy = 0;
+    }
+}
+
+function setDirectionLeft() {
+    //change the snake's direction to moving left
+    if(dx == 0) {
+        //snake can't turn around completely
+        dx = -snakeVel;
+        dy = 0;
+    }
+}
+
+function setDirectionUp() {
+    //change the snake's direction to moving up
+    if(dy == 0) {
+        //snake can't turn around completely
+        dx = 0;
+        dy = -snakeVel;
+    }
+}
+
+function setDirectionDown() {
+    //change the snake's direction to moving down
+    if(dy == 0) {
+        //snake can't turn around completely
+        dy = snakeVel;
+        dx = 0;
     }
 }
 
