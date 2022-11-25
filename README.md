@@ -3,14 +3,14 @@
 
 This project is a basic snake game. It started as an experiment in using JS animation and expanded to include a simple MariaDB database and PHP for storing high scores.
 
-# BUILT WITH
+# Built With
 
 JavaScript
 PHP
 MariaDB
 Bootstrap
 
-# GETTING STARTED
+# Getting Started
 ## Prerequisites
 
 * MariaDB
@@ -32,6 +32,6 @@ Bootstrap
 1. Access site in a browser at http://localhost/high-score
 
 
-#License
+# License
 
 Distributed under the MIT License. See LICENSE for more information
